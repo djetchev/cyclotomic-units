@@ -14,13 +14,11 @@ to formalize the theory of cyclotomic units in Lean.
 
 \section{Maximal real subfield}
 \begin{defn}\label{defn:Kplus}
-    \notready
     Let $K = \mathbb{Q}(\zeta_n)$ where $\zeta_n$ is a primitive $n$-th root of unit. 
     Define the subfield $K^+ := \mathbb{Q}(\zeta_n + \zeta_n^{-1})$ of $K$.
 \end{defn}
 
 \begin{lem}\label{lem:Kplus}
-    \notready
     \uses{defn:Kplus}
     The subfield $K^+$ is the maximal real subfield of $K$.
 \end{lem}
@@ -30,7 +28,6 @@ to formalize the theory of cyclotomic units in Lean.
 
 \section{Cyclotomic units}
 \begin{defn}\label{defn:cyclo-units}
-    \notready
     Define the cyclotomic units of a cyclotomic field $K = \mathbb{Q}(\zeta_n)$ with ring of integers 
     $O_K = \mathbb{Z}[\zeta_n]$ as the group 
     $$
@@ -41,7 +38,6 @@ to formalize the theory of cyclotomic units in Lean.
 \section{Index theorem}
 \begin{thm}\label{thm:index}
     \lean{cyclotomic_units_index}
-    \notready
     \uses{defn:cyclo-units}
     Let $n \in \mathbb{N}$ and let $K = \mathbb{Q}(\zeta_n)$ where $\zeta_n$ is a primitive $n$-th root of unit. 
     Let $O_K$ be the ring of integers of $K$. 
@@ -54,5 +50,5 @@ to formalize the theory of cyclotomic units in Lean.
 \end{thm}
 
 \begin{proof}
-    \notready
+    \proves{thm:Kplus}
 \end{proof}
