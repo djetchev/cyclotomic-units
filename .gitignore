@@ -1,1 +1,4 @@
 /.lake
+pyvenv.cfg
+bin
+lib
