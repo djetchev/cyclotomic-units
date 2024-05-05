@@ -39,10 +39,10 @@ to formalize the theory of cyclotomic units in Lean.
 \begin{thm}\label{thm:index}
     \lean{cyclotomic_units_index}
     \uses{defn:cyclo-units}
-    Let $n \in \mathbb{N}$ and let $K = \mathbb{Q}(\zeta_n)$ where $\zeta_n$ is a primitive $n$-th root of unit. 
+    Let $n := p^m \in \mathbb{N}$ for a prime $p$ and a positive integer $m$, and let $K = \mathbb{Q}(\zeta_n)$ where $\zeta_n$ is a primitive $n$-th root of unit. 
     Let $O_K$ be the ring of integers of $K$. 
     Let $C_K$ be the group of cyclotomic units in $K$ according to Definition~\ref{defn:cyclo-units}.
-    The index of the group of cyclotomic units $\mu_n(K)$ in the group of units $U(K)$ is given by
+    Then
     \[
         [O_{K^+}^\times : C_{K^+}] = h_{K^+},
     \]
@@ -51,4 +51,25 @@ to formalize the theory of cyclotomic units in Lean.
 
 \begin{proof}
     \proves{thm:Kplus}
+    \uses{lem:regRa}
+    \begin{itemize}
+        \item Show that the regulator of the units $\zeta(a)$ is non-zero, where 
+        $$
+        \zeta(a) := \zeta_{p^m}^{(1-a)/2} \frac{1 - \zeta_{p^m}^a}{1 - \zeta_{p^m}}, \qquad 1 < a < p^m / 2, \ (a, p) = 1.
+        $$
+        \item We then compute the regulator $R(\{\zeta(a)\})$. 
+    \end{itemize}
+\end{proof}
+
+\subsection{Computing the regulator $R(\{\zeta(a)\})$}
+
+\begin{lem}\label{lem:regRa}
+    We have 
+    $$
+    R(\{\zeta(a)\}) = h^+ R^+, 
+    $$
+    where $R^+$ is the regulator of $K^+$.
+\end{lem}
+
+\begin{proof}
 \end{proof}
