@@ -5,3 +5,54 @@
 % If you want to split the blueprint content into several files then
 % the current file can be a simple sequence of \input. Otherwise It
 % can start with a \section or \chapter for instance.
+
+\chapter{Introduction}
+This is my first experimental mini-project 
+to formalize the theory of cyclotomic units in Lean. 
+
+\chapter{The Index of Cyclotomic Units}
+
+\section{Maximal real subfield}
+\begin{defn}\label{defn:Kplus}
+    \notready
+    Let $K = \mathbb{Q}(\zeta_n)$ where $\zeta_n$ is a primitive $n$-th root of unit. 
+    Define the subfield $K^+ := \mathbb{Q}(\zeta_n + \zeta_n^{-1})$ of $K$.
+\end{defn}
+
+\begin{lem}\label{lem:Kplus}
+    \notready
+    \uses{defn:Kplus}
+    The subfield $K^+$ is the maximal real subfield of $K$.
+\end{lem}
+
+\begin{proof}
+\end{proof}
+
+\section{Cyclotomic units}
+\begin{defn}\label{defn:cyclo-units}
+    \notready
+    Define the cyclotomic units of a cyclotomic field $K = \mathbb{Q}(\zeta_n)$ with ring of integers 
+    $O_K = \mathbb{Z}[\zeta_n]$ as the group 
+    $$
+    C_K := O_K^\times \cap \langle \zeta_n^a, 1 - \zeta_n^b \colon a, b \in \mathbb{Z} / n \mathbb{Z}\rangle. 
+    $$
+\end{defn}
+
+\section{Index theorem}
+\begin{thm}\label{thm:index}
+    \lean{cyclotomic_units_index}
+    \notready
+    \uses{defn:cyclo-units}
+    Let $n \in \mathbb{N}$ and let $K = \mathbb{Q}(\zeta_n)$ where $\zeta_n$ is a primitive $n$-th root of unit. 
+    Let $O_K$ be the ring of integers of $K$. 
+    Let $C_K$ be the group of cyclotomic units in $K$ according to Definition~\ref{defn:cyclo-units}.
+    The index of the group of cyclotomic units $\mu_n(K)$ in the group of units $U(K)$ is given by
+    \[
+        [O_{K^+}^\times : C_{K^+}] = h_{K^+},
+    \]
+    where $h_{K^+}$ is the class number of the maximal real subfield $K^+$ of $K$.
+\end{thm}
+
+\begin{proof}
+    \notready
+\end{proof}
