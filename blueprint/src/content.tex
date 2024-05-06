@@ -20,15 +20,15 @@ Let $L$ be a number field with $r_1$ real and $r_2$ complex embeddings and let $
 
 Let $\epsilon_1, \dots, \epsilon_r$ be a set of independent units of $L$. 
 
-\begin{defn}\label{defn:mixed-embeddings}
+\begin{definition}\label{defn:mixed-embeddings}
     \lean{NumberField.mixedEmbedding}
     \leanok
     Let $\sigma_1, \dots, \sigma_{r_1}$ 
     be the set of real embeddings and let $(\sigma_{r_1 + 1}, \overline{\sigma}_{r_1 + 1}), \dots, (\sigma_{r}, \overline{\sigma}_{r})$ be the 
     pairs of conjugate complex embeddings.
-\end{defn}
+\end{definition}
 
-\begin{defn}\label{defn:regulator}
+\begin{definition}\label{defn:regulator}
     \uses{defn:mixed-embeddings}
     \lean{NumberField.canonicalEmbedding}
     \leanok
@@ -44,36 +44,36 @@ Let $\epsilon_1, \dots, \epsilon_r$ be a set of independent units of $L$.
     2 & \text{ if } \sigma_i \text{ is complex}.
     \end{cases}
     $$
-\end{defn}
+\end{definition}
 
 
 \chapter{The Index of Cyclotomic Units}
 
 \section{Maximal real subfield}
-\begin{defn}\label{defn:Kplus}
+\begin{definition}\label{defn:Kplus}
     Let $K = \mathbb{Q}(\zeta_n)$ where $\zeta_n$ is a primitive $n$-th root of unit. 
     Define the subfield $K^+ := \mathbb{Q}(\zeta_n + \zeta_n^{-1})$ of $K$.
-\end{defn}
+\end{definition}
 
-\begin{lem}\label{lem:Kplus}
+\begin{lemma}\label{lem:Kplus}
     \uses{defn:Kplus}
     The subfield $K^+$ is the maximal real subfield of $K$.
-\end{lem}
+\end{lemma}
 
 \begin{proof}
 \end{proof}
 
 \section{Cyclotomic units}
-\begin{defn}\label{defn:cyclo-units}
+\begin{definition}\label{defn:cyclo-units}
     Define the cyclotomic units of a cyclotomic field $K = \mathbb{Q}(\zeta_n)$ with ring of integers 
     $O_K = \mathbb{Z}[\zeta_n]$ as the group 
     $$
     C_K := O_K^\times \cap \langle \zeta_n^a, 1 - \zeta_n^b \colon a, b \in \mathbb{Z} / n \mathbb{Z}\rangle. 
     $$
-\end{defn}
+\end{definition}
 
 \section{Index theorem}
-\begin{thm}\label{thm:index}
+\begin{theorem}\label{thm:index}
     \uses{defn:cyclo-units}
     Let $n := p^m \in \mathbb{N}$ for a prime $p$ and a positive integer $m$, and let $K = \mathbb{Q}(\zeta_n)$ where $\zeta_n$ is a primitive $n$-th root of unit. 
     Let $O_K$ be the ring of integers of $K$. 
@@ -83,7 +83,7 @@ Let $\epsilon_1, \dots, \epsilon_r$ be a set of independent units of $L$.
         [O_{K^+}^\times : C_{K^+}] = h_{K^+},
     \]
     where $h_{K^+}$ is the class number of the maximal real subfield $K^+$ of $K$.
-\end{thm}
+\end{theorem}
 
 \begin{proof}
     \proves{thm:Kplus}
@@ -99,13 +99,13 @@ Let $\epsilon_1, \dots, \epsilon_r$ be a set of independent units of $L$.
 
 \subsection{Computing the regulator for $K^+$}
 
-\begin{lem}\label{lem:regRa}
+\begin{lemma}\label{lem:regRa}
     We have 
     $$
     R(\{\zeta(a)\}) = h^+ R^+, 
     $$
     where $R^+$ is the regulator of $K^+$.
-\end{lem}
+\end{lemma}
 
 \begin{proof}
     \proves{lem:regRa}
@@ -113,14 +113,14 @@ Let $\epsilon_1, \dots, \epsilon_r$ be a set of independent units of $L$.
 
 \subsection{The index of cyclotomic units and the regulator}
 
-\begin{lem}\label{lem:index-reg}
+\begin{lemma}\label{lem:index-reg}
 Let $\epsilon_1, \dots, \epsilon_r$ be independent units of a number field $K$ that generate a subgroup 
 $A$ of the units of $K$ modulo roots of unity and let $\eta_1, \dots, \eta_r$ generate a subgroup 
 $B$. If $A \subseteq B$ is of finite index then 
 $$
 [B : A] = \frac{R_K(\epsilon_1, \dots, \epsilon_r)}{R_K(\eta_1, \dots, \eta_r)}.
 $$
-\end{lem}
+\end{lemma}
 
 \begin{proof}
 \end{proof}
