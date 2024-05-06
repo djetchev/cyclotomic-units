@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2021.1.16)  5 MAY 2024 08:40
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2021.1.16)  6 MAY 2024 18:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -708,37 +708,60 @@ Chapter 1.
 ]
 Chapter 2.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 10.00107pt on input line 25.
+(Font)              scaled to size 10.00107pt on input line 17.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 7.00075pt on input line 25.
+(Font)              scaled to size 7.00075pt on input line 17.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 5.00053pt on input line 25.
+(Font)              scaled to size 5.00053pt on input line 17.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 9.99893pt on input line 25.
+(Font)              scaled to size 9.99893pt on input line 17.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 6.99925pt on input line 25.
+(Font)              scaled to size 6.99925pt on input line 17.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 4.99947pt on input line 25.
-)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 33.
- [2
+(Font)              scaled to size 4.99947pt on input line 17.
+[2
 
 ]
+Chapter 3.
+
+LaTeX Warning: Reference `thm:Kplus' on page 3 undefined on input line 81.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 92.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `superscript' on input line 92.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 92.
+
+[3
+
+])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 33.
+ [4]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 33.
  (../print/print.aux)
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 33.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 33.
 Package rerunfilecheck Info: File `print.out' has not changed.
-(rerunfilecheck)             Checksum: 0CE579FC63A3512131B61E4585529C5A;562.
+(rerunfilecheck)             Checksum: B9F1F86BC1E09A79BE62F15B1A94C705;1652.
+
+
+LaTeX Warning: There were undefined references.
+
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 33.
  ) 
 Here is how much of TeX's memory you used:
- 16683 strings out of 479418
- 298488 string characters out of 5884585
- 863489 words of memory out of 5000000
- 34000 multiletter control sequences out of 15000+600000
- 537693 words of font info for 71 fonts, out of 8000000 for 9000
+ 16709 strings out of 479418
+ 299002 string characters out of 5884585
+ 867489 words of memory out of 5000000
+ 34017 multiletter control sequences out of 15000+600000
+ 537733 words of font info for 76 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 53i,6n,112p,332b,358s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 53i,9n,112p,359b,405s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on ../print/print.pdf (3 pages).
+Output written on ../print/print.pdf (5 pages).

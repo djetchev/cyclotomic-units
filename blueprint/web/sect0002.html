@@ -12,7 +12,8 @@
 <meta name="generator" content="plasTeX" />
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>The Index of Cyclotomic Units</title>
+<title>Regulators of Number Fields</title>
+<link rel="next" href="sect0003.html" title="The Index of Cyclotomic Units" />
 <link rel="prev" href="sect0001.html" title="Introduction" />
 <link rel="up" href="index.html" title="Cyclotomic Units" />
 <link rel="stylesheet" href="styles/theme-white.css" />
@@ -35,21 +36,34 @@
   <a href="sect0001.html"><span class="toc_ref">1</span> <span class="toc_entry">Introduction</span></a>
  </li>
 <li class=" active current">
-  <a href="sect0002.html"><span class="toc_ref">2</span> <span class="toc_entry">The Index of Cyclotomic Units</span></a>
+  <a href="sect0002.html"><span class="toc_ref">2</span> <span class="toc_entry">Regulators of Number Fields</span></a>
   <span class="expand-toc">▼</span>
   <ul class="sub-toc-1 active">
      <li class="">
-  <a href="sect0002.html#a0000000004"><span class="toc_ref">2.1</span> <span class="toc_entry">Maximal real subfield</span></a>
+  <a href="sect0002.html#sec:regulator"><span class="toc_ref">2.1</span> <span class="toc_entry">Definition of the regulator</span></a>
+ </li>
+
+  </ul>
  </li>
 <li class="">
-  <a href="sect0002.html#a0000000005"><span class="toc_ref">2.2</span> <span class="toc_entry">Cyclotomic units</span></a>
+  <a href="sect0003.html"><span class="toc_ref">3</span> <span class="toc_entry">The Index of Cyclotomic Units</span></a>
+  <span class="expand-toc">▶</span>
+  <ul class="sub-toc-1">
+     <li class="">
+  <a href="sect0003.html#a0000000005"><span class="toc_ref">3.1</span> <span class="toc_entry">Maximal real subfield</span></a>
  </li>
 <li class="">
-  <a href="sect0002.html#a0000000006"><span class="toc_ref">2.3</span> <span class="toc_entry">Index theorem</span></a>
+  <a href="sect0003.html#a0000000006"><span class="toc_ref">3.2</span> <span class="toc_entry">Cyclotomic units</span></a>
+ </li>
+<li class="">
+  <a href="sect0003.html#a0000000007"><span class="toc_ref">3.3</span> <span class="toc_entry">Index theorem</span></a>
   <span class="expand-toc">▶</span>
   <ul class="sub-toc-2">
      <li class="">
-  <a href="sect0002.html#a0000000007"><span class="toc_ref">2.3.1</span> <span class="toc_entry">Computing the regulator \(R(\{ \zeta (a)\} )\)</span></a>
+  <a href="sect0003.html#a0000000008"><span class="toc_ref">3.3.1</span> <span class="toc_entry">Computing the regulator for \(K^+\)</span></a>
+ </li>
+<li class="">
+  <a href="sect0003.html#a0000000009"><span class="toc_ref">3.3.2</span> <span class="toc_entry">The index of cyclotomic units and the regulator</span></a>
  </li>
 
   </ul>
@@ -66,9 +80,13 @@
 
 
 <div class="main-text">
-<h1 id="a0000000003">2 The Index of Cyclotomic Units</h1>
-<h1 id="a0000000004">2.1 Maximal real subfield</h1>
-<div class="defn_thmwrapper theorem-style-definition" id="defn:Kplus">
+<h1 id="a0000000003">2 Regulators of Number Fields</h1>
+<p> This chapter presents basic definitions and results on regulators of number fields. </p>
+<p>Let \(L\) be a number field with \(r_1\) real and \(r_2\) complex embeddings and let \(r = r_1 + r_2 - 1\). </p>
+<h1 id="sec:regulator">2.1 Definition of the regulator</h1>
+
+<p>Let \(\epsilon _1, \dots , \epsilon _r\) be a set of independent units of \(L\). Let \(\sigma _1, \dots , \sigma _{r_1}\) be the set of real embeddings and let \((\sigma _{r_1 + 1}, \overline{\sigma }_{r_1 + 1}), \dots , (\sigma _{r}, \overline{\sigma }_{r})\) be the pairs of conjugate complex embeddings. </p>
+<div class="defn_thmwrapper theorem-style-definition" id="defn:regulator">
   <div class="defn_thmheading">
     <span class="defn_thmcaption">
     Definition
@@ -79,223 +97,21 @@
         </div>
     <div class="thm_header_hidden_extras">
 
-    <a class="icon proof" href="sect0002.html#defn:Kplus">#</a>
+    <a class="icon proof" href="sect0002.html#defn:regulator">#</a>
     
     
     
         </div>
   </div>
   <div class="defn_thmcontent">
-  <p> Let \(K = \mathbb {Q}(\zeta _n)\) where \(\zeta _n\) is a primitive \(n\)-th root of unit. Define the subfield \(K^+ := \mathbb {Q}(\zeta _n + \zeta _n^{-1})\) of \(K\). </p>
-
-  </div>
+  <p> We define the regulator of the units \(\epsilon _1, \dots , \epsilon _r\) of \(L\) as </p>
+<div class="displaymath" id="a0000000010">
+  \[  R_L(\epsilon _1, \dots , \epsilon _r) := \sqrt{\det (\delta _{i} \log | \sigma _i(\epsilon _j) | )_{i, j}},  \]
 </div>
-<div class="lem_thmwrapper theorem-style-plain" id="lem:Kplus">
-  <div class="lem_thmheading">
-    <span class="lem_thmcaption">
-    Lemma
-    </span>
-    <span class="lem_thmlabel">2.1.2</span>
-    <div class="thm_header_extras">
-
-        </div>
-    <div class="thm_header_hidden_extras">
-
-    <a class="icon proof" href="sect0002.html#lem:Kplus">#</a>
-    
-    
-    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
-</button>
-        <div class="modal-container">
-      <div class="modal-content">
-        <header>
-          <h1>Uses</h1>
-          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
-</button>
-        </header>
-        
-        <ul class="uses">
-          
-          <li><a href="sect0002.html#defn:Kplus">Definition 2.1.1</a></li>
-          
-        </ul>
-    
-      </div>
-    </div>
-
-    
-    
-        </div>
-  </div>
-  <div class="lem_thmcontent">
-  <p>  The subfield \(K^+\) is the maximal real subfield of \(K\). </p>
-
-  </div>
-</div>
-<div class="proof_wrapper" id="a0000000008">
-  <div class="proof_heading">
-    <span class="proof_caption">
-    Proof
-    </span>
-    <span class="expand-proof">▶</span>
-  </div>
-  <div class="proof_content">
-  
-  </div>
-</div>
-<h1 id="a0000000005">2.2 Cyclotomic units</h1>
-<div class="defn_thmwrapper theorem-style-definition" id="defn:cyclo-units">
-  <div class="defn_thmheading">
-    <span class="defn_thmcaption">
-    Definition
-    </span>
-    <span class="defn_thmlabel">2.2.1</span>
-    <div class="thm_header_extras">
-
-        </div>
-    <div class="thm_header_hidden_extras">
-
-    <a class="icon proof" href="sect0002.html#defn:cyclo-units">#</a>
-    
-    
-    
-        </div>
-  </div>
-  <div class="defn_thmcontent">
-  <p> Define the cyclotomic units of a cyclotomic field \(K = \mathbb {Q}(\zeta _n)\) with ring of integers \(O_K = \mathbb {Z}[\zeta _n]\) as the group </p>
-<div class="displaymath" id="a0000000009">
-  \[  C_K := O_K^\times \cap \langle \zeta _n^a, 1 - \zeta _n^b \colon a, b \in \mathbb {Z} / n \mathbb {Z}\rangle .  \]
-</div>
-
-  </div>
-</div>
-<h1 id="a0000000006">2.3 Index theorem</h1>
-<div class="thm_thmwrapper theorem-style-plain" id="thm:index">
-  <div class="thm_thmheading">
-    <span class="thm_thmcaption">
-    Theorem
-    </span>
-    <span class="thm_thmlabel">2.3.1</span>
-    <div class="thm_header_extras">
-
-        </div>
-    <div class="thm_header_hidden_extras">
-
-    <a class="icon proof" href="sect0002.html#thm:index">#</a>
-    
-    <a class="icon proof" href="sect0002.html#a0000000010"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
-</a>
-    
-    
-    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
-</button>
-        <div class="modal-container">
-      <div class="modal-content">
-        <header>
-          <h1>Uses</h1>
-          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
-</button>
-        </header>
-        
-        <ul class="uses">
-          
-          <li><a href="sect0002.html#defn:cyclo-units">Definition 2.2.1</a></li>
-          
-        </ul>
-    
-      </div>
-    </div>
-
-    
-    
-    <button class="modal lean">L∃∀N</button>
-        <div class="modal-container">
-      <div class="modal-content">
-        <header>
-          <h1>Lean declarations</h1>
-          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
-</button>
-        </header>
-        
-        <ul class="uses">
-          
-        </ul>
-    
-      </div>
-    </div>
-
-    
-        </div>
-  </div>
-  <div class="thm_thmcontent">
-  <p>   Let \(n := p^m \in \mathbb {N}\) for a prime \(p\) and a positive integer \(m\), and let \(K = \mathbb {Q}(\zeta _n)\) where \(\zeta _n\) is a primitive \(n\)-th root of unit. Let \(O_K\) be the ring of integers of \(K\). Let \(C_K\) be the group of cyclotomic units in \(K\) according to Definition&#160;<a href="sect0002.html#defn:cyclo-units">2.2.1</a>. Then </p>
+<p> where </p>
 <div class="displaymath" id="a0000000011">
-  \[  [O_{K^+}^\times : C_{K^+}] = h_{K^+},  \]
+  \[  \delta _i = \begin{cases}  1 &  \text{ if } \sigma _i \text{ is real}, \\ 2 &  \text{ if } \sigma _i \text{ is complex}. \end{cases}  \]
 </div>
-<p> where \(h_{K^+}\) is the class number of the maximal real subfield \(K^+\) of \(K\). </p>
-
-  </div>
-</div>
-<div class="proof_wrapper" id="a0000000010">
-  <div class="proof_heading">
-    <span class="proof_caption">
-    Proof
-    </span>
-    <span class="expand-proof">▶</span>
-  </div>
-  <div class="proof_content">
-  
-<ul class="itemize">
-  <li><p>Show that the regulator of the units \(\zeta (a)\) is non-zero, where </p>
-<div class="displaymath" id="a0000000012">
-  \[  \zeta (a) := \zeta _{p^m}^{(1-a)/2} \frac{1 - \zeta _{p^m}^a}{1 - \zeta _{p^m}}, \qquad 1 {\lt} a {\lt} p^m / 2, \  (a, p) = 1.  \]
-</div>
-</li>
-  <li><p>We then compute the regulator \(R(\{ \zeta (a)\} )\). </p>
-</li>
-</ul>
-
-  </div>
-</div>
-<h2 id="a0000000007">2.3.1 Computing the regulator \(R(\{ \zeta (a)\} )\)</h2>
-<div class="lem_thmwrapper theorem-style-plain" id="lem:regRa">
-  <div class="lem_thmheading">
-    <span class="lem_thmcaption">
-    Lemma
-    </span>
-    <span class="lem_thmlabel">2.3.2</span>
-    <div class="thm_header_extras">
-
-        </div>
-    <div class="thm_header_hidden_extras">
-
-    <a class="icon proof" href="sect0002.html#lem:regRa">#</a>
-    
-    <a class="icon proof" href="sect0002.html#a0000000013"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
-</a>
-    
-    
-    
-        </div>
-  </div>
-  <div class="lem_thmcontent">
-  <p> We have </p>
-<div class="displaymath" id="a0000000014">
-  \[  R(\{ \zeta (a)\} ) = h^+ R^+,  \]
-</div>
-<p> where \(R^+\) is the regulator of \(K^+\). </p>
-
-  </div>
-</div>
-<div class="proof_wrapper" id="a0000000013">
-  <div class="proof_heading">
-    <span class="proof_caption">
-    Proof
-    </span>
-    <span class="expand-proof">▶</span>
-  </div>
-  <div class="proof_content">
-  
 
   </div>
 </div>
@@ -313,6 +129,8 @@
   <a href="sect0001.html" title="Introduction"><svg  class="icon icon-arrow-left "><use xlink:href="symbol-defs.svg#icon-arrow-left"></use></svg>
 </a>
   <a href="index.html" title="Cyclotomic Units"><svg  class="icon icon-arrow-up "><use xlink:href="symbol-defs.svg#icon-arrow-up"></use></svg>
+</a>
+  <a href="sect0003.html" title="The Index of Cyclotomic Units"><svg  class="icon icon-arrow-right "><use xlink:href="symbol-defs.svg#icon-arrow-right"></use></svg>
 </a>
 </nav>
 
