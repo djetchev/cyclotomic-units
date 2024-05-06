@@ -18,11 +18,20 @@ Let $L$ be a number field with $r_1$ real and $r_2$ complex embeddings and let $
 
 \section{Definition of the regulator}\label{sec:regulator}
 
-Let $\epsilon_1, \dots, \epsilon_r$ be a set of independent units of $L$. Let $\sigma_1, \dots, \sigma_{r_1}$ 
-be the set of real embeddings and let $(\sigma_{r_1 + 1}, \overline{\sigma}_{r_1 + 1}), \dots, (\sigma_{r}, \overline{\sigma}_{r})$ be the 
-pairs of conjugate complex embeddings.
+Let $\epsilon_1, \dots, \epsilon_r$ be a set of independent units of $L$. 
+
+\begin{defn}\label{defn:mixed-embeddings}
+    \lean{NumberField.mixedEmbedding}
+    \leanok
+    Let $\sigma_1, \dots, \sigma_{r_1}$ 
+    be the set of real embeddings and let $(\sigma_{r_1 + 1}, \overline{\sigma}_{r_1 + 1}), \dots, (\sigma_{r}, \overline{\sigma}_{r})$ be the 
+    pairs of conjugate complex embeddings.
+\end{defn}
 
 \begin{defn}\label{defn:regulator}
+    \uses{defn:mixed-embeddings}
+    \lean{NumberField.canonicalEmbedding}
+    \leanok
     We define the regulator of the units $\epsilon_1, \dots, \epsilon_r$ of $L$ as 
     $$
     R_L(\epsilon_1, \dots, \epsilon_r) := \sqrt{\det(\delta_{i} \log | \sigma_i(\epsilon_j) | )_{i, j}}, 
