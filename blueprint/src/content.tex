@@ -43,6 +43,72 @@ Let $\epsilon_1, \dots, \epsilon_r$ be a set of independent units of $L$.
     $$
 \end{definition}
 
+\section{The index of units subgroups and regulators}
+
+\begin{lemma}\label{lem:index_eq_reg_ratio}
+    \uses{defn:regulator}
+    Let $\epsilon_1, \dots, \epsilon_r$ be independent units of a number field $K$ that generate a subgroup 
+    $A$ of the units of $K$ modulo roots of unity and let $\eta_1, \dots, \eta_r$ generate a subgroup 
+    $B$. If $A \subseteq B$ is of finite index then 
+    $$
+        [B : A] = \frac{R_K(\epsilon_1, \dots, \epsilon_r)}{R_K(\eta_1, \dots, \eta_r)}.
+    $$
+\end{lemma}
+
+We derive the lemma from the definition of the regulator and the theory of elementary divisors for 
+$\mathbb{Z}$-modules.
+
+\begin{lemma}[Smith normal form]\label{lem:elem_divisors}
+    \lean{Basis.SmithNormalForm}
+    \leanok
+    Let $M \in \GL_{n \times m}(\mathbb{Z})$ be an integer matrix. 
+    There exists matrices $U \in \GL_n(\mathbb{Z})$ and 
+    $V \in \GL_m(\mathbb{Z})$ such that 
+    $$
+    U M V = 
+    \begin{pmatrix}
+        D & 0 \\
+        0 & 0 
+    \end{pmatrix}
+    $$ 
+    where $D = \textrm{diag}(d_1, \dots, d_r)$ is an $r \times r$ 
+    diagonal integer matrix with $d_1 \mid d_2 \mid \dots \mid d_r$.  
+\end{lemma}
+
+\begin{proof}
+    \proves{lem:elem_divisors}
+    \lean{Basis.SmithNormalForm}
+    \leanok
+\end{proof}
+
+\begin{proof}
+    \uses{lem:elem_divisors}
+    \proves{lem:index_eq_reg_ratio}
+    Since $A \subseteq B$, one can write 
+    $$
+    \eta_i = \epsilon_1^{a_{i1}} \cdot \dots \cdot \epsilon_r^{a_{i r}} \cdot \mu^{(i)}, \quad i = 1, \dots, r, 
+    $$
+    where $a_{ij} \in \mathbb{Z}$ and $\mu^{(i)}$ is a root of unity. By taking absolute values and logarithms, 
+    $$
+    \delta_j \log | \sigma_j(\eta_i) | = \sum_{k = 1}^r a_{ik} \delta_j \log | \sigma_j(\epsilon_k) |, \quad i = 1, \dots, r. 
+    $$
+    Therefore, using Defintiion~\ref{defn:regulator}, we have
+    \begin{equation}\label{eq:reg_ratio}
+    \frac{R_K(\epsilon_1, \dots, \epsilon_r)}{R_K(\eta_1, \dots, \eta_r)} = \det ((a_{ik})_{i, k = 1}^r)
+    \end{equation}
+    Applying Lemma~\ref{lem:elem_divisors}, we can find matrices $U, V \in \GL_2(\mathbb{Z})$ such that 
+    $$
+    U (a_{ik})_{i, k = 1}^r V = \text{diag}(d_1, \dots, d_r). 
+    $$
+    Therefore, changing the basis of $A$ and $B$ with $M$ and $N$, respectively, we obtain bases 
+    $x_1, \dots, x_r$ of $A$ and $y_1, \dots, y_r$ of $B$ such that $x_i = d_i y_i$, i.e., 
+    $$
+    B / A = \bigoplus_{i = 1}^r \mathbb{Z} / d_i \mathbb{Z}. 
+    $$
+    Hence, $[B : A] = |\prod_{i = 1}^r d_i | = \det ((a_{ik})_{i, k = 1}^r)$ which, combined with \eqref{eq:reg_ratio}, 
+    proves the lemma.  
+\end{proof}
+
 
 \chapter{The Index of Cyclotomic Units}
 
@@ -98,7 +164,8 @@ Let $\epsilon_1, \dots, \epsilon_r$ be a set of independent units of $L$.
 \subsection{Computing the regulator for $K^+$}
 
 \begin{lemma}\label{lem:reg_Ra}
-    We have 
+    \uses{defn:regulator, defn:K_plus}
+    We have
     $$
     R(\{\zeta(a)\}) = h^+ R^+, 
     $$
@@ -109,16 +176,3 @@ Let $\epsilon_1, \dots, \epsilon_r$ be a set of independent units of $L$.
     \proves{lem:reg_Ra}
 \end{proof}
 
-\subsection{The index of cyclotomic units and the regulator}
-
-\begin{lemma}\label{lem:index_eq_reg_ratio}
-    Let $\epsilon_1, \dots, \epsilon_r$ be independent units of a number field $K$ that generate a subgroup 
-    $A$ of the units of $K$ modulo roots of unity and let $\eta_1, \dots, \eta_r$ generate a subgroup 
-    $B$. If $A \subseteq B$ is of finite index then 
-    $$
-        [B : A] = \frac{R_K(\epsilon_1, \dots, \epsilon_r)}{R_K(\eta_1, \dots, \eta_r)}.
-    $$
-\end{lemma}
-
-\begin{proof}
-\end{proof}
