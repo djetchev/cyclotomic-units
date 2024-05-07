@@ -2,3 +2,5 @@
 -- Import modules here that should be built as part of the library.
 import CyclotomicUnits.Basic
 import Mathlib.NumberTheory.NumberField.CanonicalEmbedding.Basic
+import Mathlib.NumberTheory.NumberField.ClassNumber
+import Mathlib.NumberTheory.Cyclotomic.Basic
