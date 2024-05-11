@@ -21,6 +21,8 @@ Let $\epsilon_1, \dots, \epsilon_r$ be a set of independent units of $L$.
 
 \begin{definition}\label{defn:mixed_embeddings}
     \uses{NumberField.mixedEmbedding}
+    \lean{NumberField.Units.regulator}
+    \leanok
     Let $\sigma_1, \dots, \sigma_{r_1}$ 
     be the set of real embeddings and let $(\sigma_{r_1 + 1}, \overline{\sigma}_{r_1 + 1}), \dots, (\sigma_{r}, \overline{\sigma}_{r})$ be the 
     pairs of conjugate complex embeddings.
@@ -182,9 +184,23 @@ $\mathbb{Z}$-modules.
     where $R^+$ is the regulator of $K^+$.
 \end{lemma}
 
+Let $G = \Gal(K^+ / \mathbb{Q})$. We will use the following auxiliary lemma:
+
+\begin{lemma}\label{lem:reg_Ra_charsum}
+    \uses{defn:regulator, defn:K_plus}
+    We have 
+    $$
+    | R(\{\zeta(a)\}) | = \frac{1}{2} \left | \prod_{\substack{\chi \in \widehat{G} \\ \chi \ne 1}} \sum_{a = 1}^{p^m} \chi(a) \log |1 - \zeta^a| \right |. 
+    $$
+\end{lemma}
+
+\begin{proof}
+    \proves{lem:reg_Ra_charsum}
+\end{proof}
+
 \begin{proof}
     \proves{lem:reg_Ra}
-    \uses{lem:gal_K_plus}
-    Let $G = \Gal(K^+ / \mathbb{Q})$.  
+    \uses{lem:gal_K_plus, lem:reg_Ra_charsum}
+     
 \end{proof}
 
