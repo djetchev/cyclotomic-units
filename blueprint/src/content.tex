@@ -20,8 +20,7 @@ Let $L$ be a number field with $r_1$ real and $r_2$ complex embeddings and let $
 Let $\epsilon_1, \dots, \epsilon_r$ be a set of independent units of $L$. 
 
 \begin{definition}\label{defn:mixed_embeddings}
-    \uses{NumberField.mixedEmbedding}
-    \lean{NumberField.Units.regulator}
+    \lean{NumberField.mixedEmbedding}
     \leanok
     Let $\sigma_1, \dots, \sigma_{r_1}$ 
     be the set of real embeddings and let $(\sigma_{r_1 + 1}, \overline{\sigma}_{r_1 + 1}), \dots, (\sigma_{r}, \overline{\sigma}_{r})$ be the 
@@ -29,7 +28,8 @@ Let $\epsilon_1, \dots, \epsilon_r$ be a set of independent units of $L$.
 \end{definition}
 
 \begin{definition}\label{defn:regulator}
-    \notready
+    \lean{NumberField.Units.regulator}
+    \leanok
     \uses{defn:mixed_embeddings}
     We define the regulator of the units $\epsilon_1, \dots, \epsilon_r$ of $L$ as 
     $$
