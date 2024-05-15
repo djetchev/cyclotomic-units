@@ -10,6 +10,84 @@
 This is my first experimental mini-project 
 to formalize the theory of cyclotomic units in Lean. 
 
+
+\chapter{Dirichlet $L$-series and class number formulas}\label{chap:dirichlet}
+
+\section{Dirichlet characters}
+
+\begin{definition}[Dirichlet character]\label{defn:dirichlet_character}
+    \lean{DirichletCharacter}
+    \leanok
+    A Dirichlet character modulo $n$ is a group homomorphism $\chi \colon (\mathbb{Z} / n \mathbb{Z})^\times \to \mathbb{C}^\times$. One can easily extend a Dirichlet character 
+    to a function $\chi \colon \mathbb{Z} \ra \mathbb{C}^\times$ by the rules 
+    $$
+    \chi(a) = 0 \text{ if } (a, n) \ne 1, \quad \chi(a + n) = \chi(a).
+    $$
+    We use this last definition throughout.
+\end{definition}
+
+
+\begin{definition}[Conductor of a Dirichlet character]\label{defn:conductor_dirchar}
+    \uses{defn:dirichlet_character}
+    \lean{DirichletCharacter.conductor}
+    \leanok
+    The conductor of a Dirichlet character $\chi$ is the smallest positive integer $f$ such that $\chi(a + f) = \chi(a)$.
+\end{definition}
+
+\begin{definition}[Gauss sum]\label{defn:gauss_sum}
+    \uses{defn:dirichlet_character}
+    \lean{gaussSum}
+    \leanok
+    Let $\chi$ be a Dirichlet character modulo $f$. The Gauss sum of $\chi$ is defined as 
+    $$
+    \tau(\chi) = \sum_{a = 1}^f \chi(a) \zeta_f^a,
+    $$
+    where $\zeta_f$ is a primitive $f$th root of unity.
+\end{definition}
+
+\section{Dirichlet $L$-series}
+
+Let $\chi$ be a Dirichlet character of conductor $f$ and let $L(s, \chi)$ 
+be the Dirichlet $L$-series attached to $\chi$.
+
+\begin{theorem}\label{thm:L_series_sum_log_units}
+    \uses{defn:dirichlet_character, defn:conductor_dirchar, defn:gauss_sum}
+    We have 
+    $$
+    L(1, \chi) = 
+    \begin{cases}
+    -\frac{\tau(\chi)}{f} \sum_{a = 1}^{f} \overline{\chi}(a) \log | (1 - \zeta_f)^a | & \text{ if } \chi(-1) = 1, \ \chi \ne 1, \\
+    \pi i \frac{\tau(\chi)}{f} \cdot \frac{1}{f} \sum_{a = 1}^f \overline{\chi}(a)a & \text{ if } \chi(-1) = -1. 
+    \end{cases}
+    $$
+\end{theorem}
+
+Before we prove the theorem, we need some auxiliary lemmas: 
+
+\begin{lemma}\label{lem:chi_gauss_sum}
+    \uses{defn:dirichlet_character, defn:conductor_dirchar, defn:gauss_sum}
+    For every integer $b$, we have 
+    $$
+    \chi(b) \tau(\overline{\chi}) = \sum_{a = 1}^f \overline{\chi}(a) e^{\frac{2\pi i a b}{f}}.
+    $$
+\end{lemma}
+
+\begin{proof}
+    \proves{lema:chi_gauss_sum}
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:L_series_sum_log_units}]
+    \proves{thm:L_series_sum_log_units}
+    \uses{lem:chi_gauss_sum}
+    Using Lemma~\ref{lem:chi_gauss_sum} and the definition of the Dirichlet $L$-series, we write 
+    \begin{eqnarray*}
+        L(1, \chi) &=& \sum_{n = 1}^{\infty} \frac{\chi(n)}{n} = \sum_{n = 1}^{\infty} \frac{1}{n} \frac{1}{\tau(\overline{\chi})} \sum_{a = 1}^f \overline{\chi}(a) e^{2\pi i a n / f} = \\
+        &=& \frac{1}{\tau(\overline{\chi})} \sum_{a = 1}^f \overline{\chi}(a) \sum_{n = 1}^{\infty} \frac{e^{2\pi i a n / f}}{n} = \\
+        &=& - \frac{1}{\tau(\overline{\chi})} \sum_{a = 1}^f \overline{\chi}(a) \log(1 - \zeta_f^a).
+    \end{eqnarray*}
+\end{proof}
+
+
 \chapter{Regulators of Number Fields}
 This chapter presents basic definitions and results on regulators of number fields.
 
@@ -165,11 +243,11 @@ $\mathbb{Z}$-modules.
     \proves{thm:K_plus}
     \uses{lem:reg_Ra}
     \begin{itemize}
-        \item Show that the regulator of the units $\zeta(a)$ is non-zero, where 
+        \item Show that the regulator of the units $\xi_a$ is non-zero, where 
         $$
-        \zeta(a) := \zeta_{p^m}^{(1-a)/2} \frac{1 - \zeta_{p^m}^a}{1 - \zeta_{p^m}}, \qquad 1 \leq a < p^m / 2, \ (a, p) = 1.
+        \xi_a := \zeta_{p^m}^{(1-a)/2} \frac{1 - \zeta_{p^m}^a}{1 - \zeta_{p^m}}, \qquad 1 \leq a < p^m / 2, \ (a, p) = 1.
         $$
-        \item Compute the regulator $R(\{\zeta(a)\})$. 
+        \item Compute the regulator $R(\{\xi_a\})$. 
     \end{itemize}
 \end{proof}
 
@@ -179,7 +257,7 @@ $\mathbb{Z}$-modules.
     \uses{defn:regulator, defn:K_plus}
     We have
     $$
-    R(\{\zeta(a)\}) = h^+ R^+, 
+    R(\{\xi_a\}) = h^+ R^+, 
     $$
     where $R^+$ is the regulator of $K^+$.
 \end{lemma}
@@ -190,7 +268,7 @@ Let $G = \Gal(K^+ / \mathbb{Q})$. We will use the following auxiliary lemma:
     \uses{defn:regulator, defn:K_plus}
     We have 
     $$
-    | R(\{\zeta(a)\}) | = \frac{1}{2} \left | \prod_{\substack{\chi \in \widehat{G} \\ \chi \ne 1}} \sum_{a = 1}^{p^m} \chi(a) \log |1 - \zeta^a| \right |. 
+    | R(\{\xi_a\}) | = \frac{1}{2} \left | \prod_{\substack{\chi \in \widehat{G} \\ \chi \ne 1}} \sum_{a = 1}^{p^m} \chi(a) \log |1 - \zeta^a| \right |. 
     $$
 \end{lemma}
 
@@ -198,9 +276,43 @@ Let $G = \Gal(K^+ / \mathbb{Q})$. We will use the following auxiliary lemma:
     \proves{lem:reg_Ra_charsum}
 \end{proof}
 
+In addition, we need the following little lemma on roots of unity: 
+
+\begin{lemma}\label{lem:prod_cycl_units}
+    For any $1 \leq k < n$, we have 
+    $$
+    \prod_{\substack{1 \leq a < p^n \\ a \equiv b \bmod p^k}} (1 - \zeta_{p^n}^a) = 1 - \zeta_{p^k}^b.   
+    $$
+\end{lemma}
+
 \begin{proof}
+    \proves{lem:prod_cycl_units}
+    We rewrite 
+    $$
+    \prod_{\substack{1 \leq a < p^n \\ a \equiv b \bmod p^k}} (1 - \zeta_{p^n}^a) = \prod_{s = 0}^{p^{n-k}-1}(1 - \zeta_{p^n}^b \zeta_{p^{n-k}}^s) = 1 - \zeta_{p^k}^b,
+    $$
+    where the last equality follows from  
+    $$
+    \prod_{i = 0}^{m-1} (1 - \zeta_m^i x)= x^m \prod_{i = 0}^{m-1} (x^{-1} - \zeta_m^i) = x^m (x^{-m} - 1) = 1 - x^m
+    $$
+    applied to $m = p^{n-k}$ and $x = \zeta_{p^n}^b$. 
+\end{proof}
+
+\begin{proof}[Proof of Lemma~\ref{lem:reg_Ra}]
     \proves{lem:reg_Ra}
-    \uses{lem:gal_K_plus, lem:reg_Ra_charsum}
-     
+    \uses{lem:gal_K_plus, lem:reg_Ra_charsum, thm:L_series_sum_log_units}
+    First, for a Dirichlet character $\chi$ modulo $p^n$ of conductor 
+    $f_{\chi} = p^k$ for some $1 \leq k < n$, Lemma~\ref{lem:roots_of_unity} yields
+    $$
+    \prod_{\substack{1 \leq a < p^n \\ a \equiv b \bmod p^k}} (1 - \zeta_{p^n}^a) = 1 - \zeta_{p^n}^b.   
+    $$
+    Applying Lemma~\ref{lem:reg_Ra_charsum} and Theorem~\ref{thm:L_series_sum_log_units}, we obtain 
+    \begin{eqnarray*}
+        % R(\{\xi_a\}) &=& \frac{1}{2} \left | \prod_{\substack{\chi \in \widehat{G} \\ \chi \ne 1}} \sum_{a = 1}^{p^n} \chi(a) \log |1 - \zeta^a| \right | = \\
+        % &=& \frac{1}{2} \prod_{\substack{\chi \in \widehat{G} \\ \chi \ne 1}} \sum_{a = 1}^{p^m} \chi(a) \log |1 - \zeta^a| = \\
+        % &=&
+        R(\{\xi_a\}) &=& \frac{1}{2} \left | \prod_{\chi \in \widehat{G}, \chi \ne 1} \sum_{a = 1}^{p^n} \chi(a) \log |1 - \zeta^a| \right | = \\
+        &=& \frac{1}{2} \prod_{\chi \in \widehat{G}, \chi \ne 1} \sum_{a = 1}^{p^m} \chi(a) \log |1 - \zeta^a| = \\
+    \end{eqnarray*}
 \end{proof}
 

@@ -3,4 +3,6 @@
 import CyclotomicUnits.Regulator
 import Mathlib.NumberTheory.NumberField.CanonicalEmbedding.Basic
 import Mathlib.NumberTheory.NumberField.ClassNumber
+import Mathlib.NumberTheory.LegendreSymbol.GaussSum
 import Mathlib.NumberTheory.Cyclotomic.Basic
+import Mathlib.NumberTheory.DirichletCharacter.Basic
